@@ -1,0 +1,28 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+
+h1 {
+    font-size: 60px;
+    text-align: center;
+    font-family: sans-serif;
+}
+
+h2 {
+    font-style: italic;
+    font-size: 50px;
+    color: #aa00aa;
+}
+
+h3 {
+    font-family: "Indie Flower";
+    color: rgb(255, 72, 206);
+    font-size: 35px;
+}
+p {
+    font-family: 'Helvetica';
+    font-weight: 100;
+    font-size: 40px;
+    line-height: 2;
+    letter-spacing: 10px;
+}
