@@ -1,0 +1,77 @@
+body {
+    font-family: Merriweather, serif;
+}
+
+/* universal selector - the asterics selects every single element on the page, reguardless of type. Often used for resetting default styles */
+/* * {
+    margin: 0;
+    padding: 0;
+} */
+
+/* element selector - select every element of a particular type */
+
+p {
+    color: purple;
+}
+
+/* class selector */
+
+.tag {
+    color: orange;
+}
+
+/* id selector - should only refer to a single element on the document */
+
+#featured {
+    color: gold;
+}
+
+/* attribute selector - selects elements based on the presence or value of certain attributes */
+
+input[type="number"] {
+    background-color: gold;
+}
+/* fancy attribute selector syntax */
+
+/* match any link with "wiki" ANYWHERE (*) in the URL */
+a[href*="wiki"] {
+    color: blue;
+}
+
+/* searches for a link with a url that STARTS WITH (^) "#" */
+a[href^="#"] {
+    color: darkviolet;
+}
+
+/* links with a URL that ENDS WITH ($) ".org" */
+a[href$=".org"] {
+    color: red;
+}
+
+/* selector list - selects everything listed, separated by commas */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Work Sans', sans-serif;
+}
+
+.tag, #featured, .score {
+    color: white;
+    background-color: orangered;
+}
+
+/* descendent combinator ( ) the " " space combinator selects elements that are descendants of the firt element */
+
+#cast span {
+    color: grey;
+}
+
+/* child combinator (>) the > combinator selects elements that are DIRECT children of the first element */
+
+ol > li {
+    border: 1px solid red;
+}
+
+ /* compound selector - we can combine class, id, and element selectors (WITHOUT SPACES) */
+
+h2.score {
+    color: blueviolet;
+ }
