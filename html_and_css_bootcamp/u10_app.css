@@ -75,3 +75,68 @@ ol > li {
 h2.score {
     color: blueviolet;
  }
+
+ /* adjacent combinator - the "+" combinator selects the element of the type that are directly after the 1st element */
+
+ h2 + p {
+    color: deeppink;
+ }
+
+ /* sibling combinator - the "~" combinator selects siblings. The 2nd element must follow the 1st element (immediately or not) and they must share the same parent */
+
+.sibling ~ p {
+    color: sandybrown;
+}
+
+/* pseudo-classes */
+
+.score:hover {
+    background-color: yellow;
+}
+
+input:disabled {
+    background-color: red;
+}
+
+input:placeholder-shown {
+    border: 5px solid green;
+}
+
+a:visited {
+    color: grey;
+}
+
+li:first-of-type {
+    border: 3px solid papayawhip;
+}
+
+button:active {
+    background-color: pink;
+}
+
+input:focus {
+    background-color: rgb(230, 230, 230);
+}
+
+body :not(.score,li,ul,ol,h1,h2,h3,h4,h4,h6) {
+    border: 1px solid bisque;
+}
+
+/* pseudo-elements - style a specific part of the selected element(s) */
+
+p::first-line {
+    font-weight: bold;
+    color: black;
+    text-transform: uppercase;
+}
+
+p:first-of-type::first-letter {
+    font-size: 200%;
+    color: blue;
+    font-family: serif;;
+}
+
+p::selection {
+    background-color: yellow;
+    color: orange;
+}
