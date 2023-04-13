@@ -3,8 +3,31 @@ body {
     height: 100vh;
     background: linear-gradient(cyan, purple);
 }
+.cardcontainer {
+    display: flex;
+    justify-content: center; 
+}
+.card {
+    background-color: white;
+    border-radius: 5px;
+    width: 400px;
+    margin: 0 30px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
 
-.navbar {
+
+.card footer {
+    background-color: slateblue;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-top: auto;
+}
+
+
+/* .navbar {
     background-color: #37474f;
     height: 70px;
     display: flex;
@@ -45,4 +68,5 @@ body {
     align-items: center;
     font-size: 4rem;
     border-radius: 50%;
-}
+} */
+
