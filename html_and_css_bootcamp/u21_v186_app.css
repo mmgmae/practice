@@ -6,16 +6,23 @@ body {
     background-color: #37474f;
     height: 70px;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
+}
+
+.left {
+    display: flex;
+    justify-content: space-between;
+    width: 500px;
+}
+
+.right  {
+    display: flex;
+    justify-content: space-between;
+    width: 500px;
 }
 
 .navlink {
     color: white;
     font-size: 2rem;
-    margin: 0 30px;
-}
-
-.right {
-    margin-left: auto;
 }
