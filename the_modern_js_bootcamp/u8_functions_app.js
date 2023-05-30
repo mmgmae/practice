@@ -117,7 +117,8 @@
     //     }
     // }
 
-    // refactored function --
+    // refactored function -->
+
     function isPurple(color) {
         return color.toLowerCase() === 'purple';
     }
@@ -126,3 +127,4 @@
     console.log(purpleTestOne); // false
     let purpleTestTwo = isPurple('PURPLE');
     console.log(purpleTestTwo); // true
+
