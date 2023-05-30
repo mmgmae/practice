@@ -183,3 +183,85 @@
     console.log(`You win!`);
 
     // not best approach -- easy to get into infinite loops, and "while true" isn't self-explanatory, and so it's not very clear code to read intuitively
+
+
+// FOR ... OF LOOPS
+    // easy way to iterate over arrays and other iterable objects
+    // doesn't work in IE
+
+    // for (LET variable OF iterable) {
+        // statement
+    // }
+
+    let subreddits = ['soccer', 'popheads', 'cringe', 'books'];
+    for (let sub of subreddits) {
+        console.log(sub);
+    }
+    // soccer  popheads  cringe  books
+    //use the variable instead of the index to make it simpler
+
+    // strings are also iterable! Variable can be anything!
+    for(let char of 'hello') {
+        console.log(char.toUpperCase());
+    }
+
+
+    // for...of with objects -- objects are not iterable
+
+        // Object.keys(objectName) -- returns a list of the keys
+        // Object.values(objectName) -- returns a list of the values
+
+    const movieReviews = {
+        Arrival : 9.5,
+        Alien : 9,
+        Amelie : 8,
+        'In Bruges' : 9,
+        amadeus : 10,
+        'Kill Bill' : 8,
+        'Little Miss Sunshine' : 8.5,
+        Coraline : 7.5
+    };
+
+    for (let movie of Object.keys(movieReviews)) {
+        console.log(movie, movieReviews[movie])
+    }
+    // Arrival 9.5  Alien 9 ....
+    
+    const ratings = Object.values(movieReviews);
+    let ratingsTotal = 0;
+    for(let r of ratings) {
+        ratingsTotal += r;
+    }
+    let ratingsAvg = ratingsTotal / ratings.length;
+    console.log(ratingsAvg);
+    // 8.6875
+
+
+// FOR ... IN LOOPS
+    // loops over the keys in an object
+    // for (variable in object) {
+        // statement
+    // }
+
+    const jeopardyWinnings = {
+        regularPlay : 2522700,
+        watsonChallenge : 300000,
+        tournamentOfChampions : 500000,
+        battleOfTheDecades : 100000
+    };
+
+    // prop - property - Hard to come up with a name, becuase it's general. Some people use k for key
+    for(let prop in jeopardyWinnings) {
+        console.log(prop);
+        console.log(jeopardyWinnings[prop])
+    }
+    // regularPlay  2522700  watsonChallenge  300000.... 
+
+    let totalWinnings = 0;
+    for (let prop in jeopardyWinnings) {
+        totalWinnings += jeopardyWinnings[prop];
+    }
+    console.log(`Ken Jennings won $${totalWinnings} in Jeopardy!`);
+
+    // TECHNICALLY you can use for in with an array, because arrays are technically objects. The keys are the indeces, the values are what's stored in the array
+    // NOTE: for in loops in an arbitrary order, so not good with arrays, whose order is set in stone.
