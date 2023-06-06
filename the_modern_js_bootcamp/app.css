@@ -32,3 +32,38 @@ input[type="password"] {
 img {
     width: 200px;
 }
+
+
+/* Annoying Button Demo */
+.annoying-button-style{
+    position: relative;
+    height: 100vh; 
+    background-color: #fdff73;
+}
+.annoyingBtn-style{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+
+    background-color: rgb(238, 149, 15); 
+    color: white; 
+    font-weight: bold; 
+    border: none; 
+    padding: 2em 4em;
+}
+
+#boxes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.box {
+    width: 200px;
+    height: 200px;
+}
+
+
+#colors {
+    color: rgb(0, 0, 0);
+    text-align: center;
+}
