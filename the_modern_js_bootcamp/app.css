@@ -95,3 +95,12 @@ img {
     padding: 1em 3em;
     margin: 3em 0;
 }
+
+#request {
+    background-color: hsla(63, 100%, 50%, 0.681);
+    padding: 0.5em 2em;
+}
+#fetch {
+    background-color: hsla(292, 100%, 50%, 0.407);
+    padding: 0.5em 2em;
+}
