@@ -115,3 +115,16 @@ img {
     background-color: transparent;
     border: none;
 }
+
+
+#proto {
+    font-size: 2em;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    border: none;
+}
+#proto h3 {
+    margin: 0;
+    padding: 1em;
+}
