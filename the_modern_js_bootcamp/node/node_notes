@@ -1,0 +1,101 @@
+SECTION 24 -- CREATE NODE JS COMMAND LINE TOOLS -- NOTES
+
+- running js code on node vs in the browsed:
+
+JS in the browser \*\*\*\*
+
+- executed by adding script tags to an HTML document
+- get access to the DOM and related objects
+- code can references variables in other files freely
+- include libraries easily by adding script tags
+
+JS with node \*\*\*\*
+
+- executed by running the Node CLI (command line interface) from your terminal
+- no DOM!
+- Each file is its own serperate world
+- include libraries by using NPM (node package manager)
+
+＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
+
+\*\*\* turn odd node
+
+> node
+
+in console
+＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
+
+\*\*\* TURN OFF / STOP NODE
+
+> Ctrl+C
+
+in console
+＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
+
+\*\*\* run a file in the console - executes a file in the same directory called index.js
+(in correct file dir)
+
+> node index.js
+> ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
+
+\*\*\* will enter the Node REPL
+
+> node
+
+＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
+
+- How to share code between files with node?
+
+  - have to use the module system
+
+  - have to assign what you want to share using a special value in your JS code
+    (myscript.js)
+
+    > module.exports = 'hi';
+
+  - then you have to require it into the file you want to use it in (written with a relative path ie ./ = same directory)
+    (index.js)
+    > const message = require('./myscript.js');
+    > console.log(message);
+    > // 'hi'
+
+  NOTE: we can only require a file ONE TIME
+  You will always get whatever is in the require cache every time you require it
+
+  > console.log(require.cache) // this is an object that stores the result of requiring in any file to our project
+
+  - includes the exports property, that stores what was required in IE the string.
+
+ARGUMENTS in the function that node uses to run the file in your console: - exports - equivalent to 'module.exports' We can technically export code using this but it's easier to use 'module.exports' becuase of a little corner case - require - function to get access to the exports from another file - module - object that defines some properties + information about the current file - **filename - full path + file name of this file - **dirname - full path of this file
+
+    can see these with console.log.....
+    > console.log(require)
+    > console.log(arguments)
+    etc etc etc
+
+＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
+
+HOW TO DEBUG A NODE PROGRAM
+
+-> start a debugger (multiple ways...)
+
+> node inspect index.js
+
+    Start up a debugger CLI (runs inside the terminal live) and pause execution whenever a 'debugger' statement is hit
+
+    ----- CLI debugger commands ---------
+        c -> continue execution until program ends or next debugger statement
+        n -> run the next line of code
+        s -> step in to a function
+        o -> step out of the current function
+        repl -> starts out the execution environment where we can reference the different variables inside our program to get information (ctrl+c to exit the repl inside of debugging)
+        Ctrl+c -> exit the debugger
+
+> node --inspect index.js
+
+    start up a debugger instance and pause execution whenever a 'debugger' statement is hit. Access the debugger at 'chrome://inspect'
+
+> node --inspect-brk index.js
+
+    * more useful than the last one -brk >>>
+    Start up a debugger instance and wait to execute until a debugger is connected. Access the debugger at 'chrome://inspect'
