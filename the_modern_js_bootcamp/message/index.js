@@ -23,7 +23,8 @@ document.querySelector('form').addEventListener('submit', event => {
     linkInput.select();
 });
 
-
-
+// used....
+// npx now
+// in terminal while in project folder to set up through vercel
 
 //  https://message-sage-gamma.vercel.app
