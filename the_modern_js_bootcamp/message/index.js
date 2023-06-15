@@ -22,3 +22,8 @@ document.querySelector('form').addEventListener('submit', event => {
     linkInput.value = `${window.location}#${encrypted}`;
     linkInput.select();
 });
+
+
+
+
+//  https://message-sage-gamma.vercel.app
