@@ -3,7 +3,7 @@
 // require the file system module from the node library
 const fs = require('fs');
 const util = require('util');
-// const chalk = require('chalk');
+const chalk = require('chalk');
 
 
 
@@ -33,8 +33,7 @@ fs.readdir(process.cwd(), async (err, filenames) => {
         if (stats.isFile()) {
             console.log(filenames[index]);
         } else {
-            // console.log(chalk.bold(filenames[index]));
-            console.log(filenames[index]);
+            console.log(chalk.green(filenames[index]));
         }
     }
 });
@@ -70,3 +69,5 @@ fs.readdir(process.cwd(), async (err, filenames) => {
 
 
 // NOTE: Got it to run as > nls   by running  >sudo npm link (no idea why this works), but chalk still will not import, so I commented out the chalk stuff so this version works
+
+// NOTE: fixed chalk! the problem is that the new version of chalk needs to use the import keyword, so I just used a previous version of chalk (4.1.2) to sidestep the issue
