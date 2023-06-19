@@ -1,0 +1,27 @@
+How a program runs in the Terminal
+
+the TERMINAL will create a PROCESS (running a program), and it will be assigned three COMMUNICATION CHANNELS
+
+- these are used to communicate with this running process
+- every process has it's own of these three channels
+  - stdin - standard in
+    - used to recieve some info directly from our terminal
+    - IE input typed into the terminal while program is running, program can choose to do something with that
+  - stdout - standard out
+    - used to communicate normal logs IE console logs or similar back to the terminal
+  - stderr - standard error
+    - used any time you throw an error of any kind, the process writes the information to the standard error channel, which sends it back to the terminal
+
+When you create a child process... (when our process makes a process) - the three channels created for the child process do not have anywhere to send their information to -- nothing is waiting to recieve or send input to them
+
+    - can use  stdio: 'inherit'  to wire everything together / automatically forward to the parent process and then sent to the terminal
+
+More on Child_Process ....
+
+- What is a shell?
+
+  - the shell is what takes and interprets the input you give to the terminal -- the 'brains' of the terminal
+
+- What is stream?
+  - How info from stdio from the child process gets sent back to the primary process (parent process)
+  - info can be sent immediately or packed up and sent after the file has ran
