@@ -1,0 +1,37 @@
+HOW REQUESTS WORK ....
+
+    req -  request
+    res - response
+
+    localhost3000 -> browser formulated a network request -> hands request to your operating system -> OS sends your request out to the open internet through the device
+
+    (if sending to something other than local host...)
+    ->  OS reaches out to a DNS server - a publically available outside server, with a mapping of hostnames (ie google.com) and IP Addresses -> the DNS sends back the IP address to your machine -> your machine makes another request (the real request) to that IP address -> recieves a response (hopefully)
+
+    (local host....) 
+    -> local host means me! -> your OS does not send to a DNS, but handles it on its own -> looks at port, and your computer has a huge aray of available ports (you can run many web servers at any given time!) -> sends it to whatever server is running on that port -> our express server is listening on port 3000, where we configured it (note: port 3000 is convention!) -> express recieves the incoming HTTP request -> (note: express cares about PATH and METHOD) -> the method and path send back the appropriate function through the ROUTER object -> runs the appropriate callback function -> send it back to whoever made the original request (ie the browser)
+
+    HTTP REQUEST
+        - HOST: 'localhost' - ie the domain
+        - Port: 3000 - (ie HTTP is 80, HTTPS is 443 as defaults)
+        - Path: '/' - everything after localhost3000 is the path, the default is /
+        - Method: 'GET' - the default
+
+
+WHEN A REQUEST IS MADE FROM BROWSER -> SERVER
+    - request is broken up into different packets of info that are sent bit by bit from browser -> server
+
+        - Browser sends HTTP header to server -- the path and method
+        - Server sees request with path and method -- immediately runs appropriate callback method
+        - THEN the browser starts transmitting information from body of request (ie form)
+        - Browser sends a little chunk of info, waits for confirmation, over and over.....
+        - All chunks are sent! Request complete!
+
+
+EXPRESS -- MIDDLEWARE FUNCTION
+ - function that does some pre-processsing on the 'req' and 'res' objects
+ - Primary means of code reuse in Express
+ - Called before the route handler
+
+ - always gets called with three arguments req, res, next 
+    - next : a callback function from the response framework itself. Used to tell your code that the middleware is done.
