@@ -3,7 +3,7 @@
 // require the file system module from the node library
 const fs = require('fs');
 const util = require('util');
-const chalk = require('chalk');
+// const chalk = require('chalk');
 
 
 
@@ -33,7 +33,8 @@ fs.readdir(process.cwd(), async (err, filenames) => {
         if (stats.isFile()) {
             console.log(filenames[index]);
         } else {
-            console.log(chalk.bold(filenames[index]));
+            // console.log(chalk.bold(filenames[index]));
+            console.log(filenames[index]);
         }
     }
 });
@@ -66,3 +67,6 @@ fs.readdir(process.cwd(), async (err, filenames) => {
 // NOTE: this project doesn't work because I could not fix permission problems...... > npm link   did not work. Cannot run as  > nls
 // NOTE: also could not get chalk to require..... said it wanted a dynamic import(), but then when I changed it it said I could not use import statement outside a module
 // :(
+
+
+// NOTE: Got it to run as > nls   by running  >sudo npm link (no idea why this works), but chalk still will not import, so I commented out the chalk stuff so this version works
