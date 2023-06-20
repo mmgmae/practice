@@ -35,3 +35,13 @@ EXPRESS -- MIDDLEWARE FUNCTION
 
  - always gets called with three arguments req, res, next 
     - next : a callback function from the response framework itself. Used to tell your code that the middleware is done.
+
+
+
+DATA STORAGE APPROACHES
+
+    - Repository Approach
+        - A single class (redpository) that is responsible for data access. All records are stored and used as plain JS objects
+
+    - Active Record Approach 
+        - Every record is an instance of a 'model' class that has methods to save, update, delete this record.
