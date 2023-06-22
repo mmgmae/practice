@@ -49,7 +49,10 @@ router.post('/admin/products/:id/edit',
     requireAuth,
     upload.single('image'),
     [requireTitle, requirePrice],
-    handleErrors(productsEditTemplate),
+    handleErrors(productsEditTemplate, async () => {
+        const product = await productsRepo.getOne(req.params.id);
+        return { product };
+    }),
     async (req, res) => {
         const changes = req.body;
 
@@ -66,5 +69,11 @@ router.post('/admin/products/:id/edit',
         res.redirect('/admin/products');
     }
 );
+
+router.post('/admin/products/:id/delete', requireAuth, async (req, res) => {
+    await productsRepo.delete(req.params.id);
+
+    res.redirect('/admin/products');
+})
 
 module.exports = router;
