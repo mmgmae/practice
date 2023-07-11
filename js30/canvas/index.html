@@ -40,21 +40,12 @@
     </div>
     <canvas id="draw" width="800" height="800"></canvas>
     <script>
-      const lighten = document.querySelector("#lighten");
-      const colorDodge = document.querySelector("#color-dodge");
-      const darken = document.querySelector("#darken");
-      const multiply = document
-        .querySelector("#multiply")
-        .addEventListener("click", updateMode);
-      const overlay = document.querySelector("#overlay");
-
       let myBtns = Array.from(document.querySelectorAll("button"));
 
-      var blendMode = "none";
+      var blendMode;
 
       function determineBlendMode(btn) {
         blendMode = btn.dataset.type;
-        console.log(blendMode, "INSIDE FUNC");
         return blendMode;
       }
 
@@ -64,20 +55,10 @@
           btn.classList.add("active");
           console.log(btn.dataset.type, "INSIDE LOOP");
           determineBlendMode(btn);
-          //   blendMode = btn.dataset.type;
-          //   console.log(blendMode);
-          //   return blendMode;
           ctx.globalCompositeOperation = blendMode;
         });
         return blendMode;
       });
-
-      function updateMode() {
-        console.log("UPDATE FUNC");
-        blendMode = multiply;
-      }
-
-      console.log(blendMode, "OUTSIDE");
 
       const canvas = document.querySelector("#draw");
       const ctx = canvas.getContext("2d");
