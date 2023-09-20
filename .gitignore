@@ -41,3 +41,5 @@ js30/webcam/package.json
 js30/webcam/package-lock.json
 js30/speechdetect/package.json
 js30/speechdetect/package-lock.json
+js30/geolocation/package-lock.json
+js30/geolocation/package.json
