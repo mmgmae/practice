@@ -67,3 +67,27 @@ html {
   .hole.up .mole {
     top: 0;
   }
+
+  .button-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3em;
+  }
+
+  button {
+    font-family: 'Amatic SC', cursive;
+    background-color: transparent;
+    font-weight: bold;
+    font-size: 5em;
+    border: 3px solid black;
+    padding: .25em 1em;
+    border-radius: 50px;
+  }
+
+  button:active {
+    color: white;
+    border-color: white;
+    transform: translateY(-5px);
+    transition: all .02s;
+  }
