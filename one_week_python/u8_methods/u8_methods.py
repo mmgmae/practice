@@ -3,6 +3,14 @@
 # thing.method()
 # methods authomatically have access to the object they are called on
 
+# Help and ipython
+
+# use help() function to give information
+help(str)
+
+# ipython lets you list methods for whatever you're working with if you click TAB after name_of_thing.TAB
+# ipython lets you use a ? instead of () to give information about a function
+
 
 # HOW TO LEARN MORE
 # 📌 NOTE: go to python.org documentation and access LIBRARY REFERENCE to see types and methods that they support ie: str -> lists methods that can be used on it
