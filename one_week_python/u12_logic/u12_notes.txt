@@ -1,0 +1,41 @@
+Unit 12 -- Writing More Complex Logic
+-------------------------------------
+
+Logical Operators -> operators that work with boolean expressions
+    and 
+    or
+    not
+
+LOGICAL AND
+    The and operator will evaluate to True only if both the left and right sides evaluate to True
+
+    >   'a' == 'a' and 1 < 5
+    >   True
+
+    NOTE: usually && in most programming languages, but python uses the word AND
+
+LOGICAL OR
+    The or operator will evaluate to True if one or both the left or right sides evaluate to True
+    Only one side has to be true, if both are true that's fine too
+
+    >   'a' == 'b' or 1 < 5
+    >   True
+
+LOGICAL NOT
+    The not operator changes True to False and False to True. It negates expressions. Not is used on a single operand / expression
+
+    >   1 < 5
+    >   True
+
+    >   not 1 < 5
+    >   False
+
+    NOTE: not expects something to come after it that it will negate. Adding not to the end of an expression is invalid syntax
+    NOTE: do not confuse not with != 
+        >   1 != 4 
+        >   True
+
+        >   not 5 <= 19
+        >   False
+
+    NOT is often used to rephrase logic so that it's easier to understand / more similar to human contexts
