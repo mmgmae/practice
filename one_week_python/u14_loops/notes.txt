@@ -1,0 +1,76 @@
+LOOPS (PART ONE)
+    programming structures that allow you to repeat line/s of code
+    WHILE loops and FOR loops
+
+WHILE LOOPS
+    repeats as long as expression is True
+    >   while expression:
+    >       statement
+
+    a lot like a conditional, but will repeat the code while the expression is True
+
+SET NUMBER OF REPEATS -> INCREMENTING or DECREMENTING
+
+    >   count = 1
+    >   while count <=2:
+    >       count +=1
+
+    each iteration through this code loop increments the count, so it will not run infinitely, but eventually will be <=2
+
+    >   num = 10
+    >   while num > 0:
+    >       print(f"NUMBER IS: {num}")
+    >       num -= 1
+
+
+*** AVOIDING INFINITE LOOPS ***
+    make sure your logic will eventually terminate -- the statement will eventually become False
+
+    << this is an infinite loop >>
+    >   count = 4
+    >   while count < 10:
+    >       count -= 1
+
+    NOTE: while count < 10 will ALWAYS be True, so this loop will run infinitely!!
+    NOTE: execution can be stopped with CONTROL + C
+
+
+FOR LOOPS
+    use for loops for something in an interable, to iterate over each item in the iterable, once per item
+
+    >   for item in iterable:
+    >       statement
+
+    what is an interable? 
+        - a sequence that consists of smaller pieces, IE characters that make up a string
+        - strings, lists, dictionaries, etc...
+
+    >   word = "Hello"
+    >   for char in word:
+    >       print(char)
+    >   //"H" //"e" //"l" //"l" //"o"
+
+    NOTE: it doesn't have to be "char" the keyword can be anything you want
+    NOTE: indentation is VERY important, same for loops as it is for conditionals
+
+THE RANGE() FUNCTION
+    RANGE: 
+        - a built in function
+        - what is returned is an object that can also be iterated over using a for loop!
+        - returns an object that produces a sequence of integers from start point to a stop point by step
+        - range(5,10) NOTE: 5 is included, 10 is excluded
+        - you don't have to give the first number, default will be the number you give is the stop, and will start iterating at 0
+
+                  ( START, STOP, STEP )
+    >   for num in range(1,10,2):
+    >       print(num)
+
+    this is a good way to iterate a set # of times!
+
+    >   for num in range(10):
+    >       print(num)
+    >   // 0 1 2 3 4 5 6 7 8 9
+
+    how to count down -> use step of -1, because step is a positive increase by default
+    >   for num in range(10,1,-1):
+
