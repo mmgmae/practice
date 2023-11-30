@@ -1,0 +1,32 @@
+CONDITIONALS (the last section)
+
+TRUTHY vs FALSE-Y & CONDITIONALS
+    - False, None, 0.0, 0, empty strings, empty data structures are all FALSE-Y
+    - Everything else is TRUTHY
+
+EXAMPLE
+    >   color = input('enter a color: ')
+    >   if color: 
+    >       print(f"{color} is my favorite color too!")
+
+- python will evaluate color as a boolean
+- if it's anything other than an empty string, the block will run; if it evaluates an empty string it turns false-y and does not run the code block
+
+EXAMPLE
+    >   num_lives = 0
+    >   if num_lives:
+    >       print('STILL PLAYING THE GAME!')
+    >   else:
+    >       print("GAME OVER, OUT OF LIVES")
+
+- since zero is false-y, code will only evaluate to True if there are still lives left
+
+
+-> This construction is epecially popular with data structures
+
+LOGICAL OPERATOR PRECEDENCE
+    - python docs has a table of precedence of every operator in python
+
+    (first) NOT -> AND -> OR (last)
+    
+    NOTE: parentheses can be used to change order
