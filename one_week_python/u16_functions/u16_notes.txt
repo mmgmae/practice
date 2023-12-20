@@ -1,0 +1,117 @@
+# FUNCTIONS
+    functions are reusable actions that have a name
+    - ie : len()  print()  input()
+
+func_name()
+
+# WHY USE FUNCTIONS
+    - reduce code duplication, shortens your code
+        - keeps code 'DRY' (D.R.Y. - Don't Repeat Yourself)
+    - functions help us abstract away code, breaking down complex programs into smaller pieces
+        - abstract away - just means simplify, or package up, so it can be used easily later
+
+# Steps to functions
+    # 1 - Define
+        Before we can use a function, we must define it and give it a name
+    # 2 - Execute
+        Once python 'knows' about our function, we can call it anytime
+
+# DEFINING A FUNCTION
+    1. use the DEF (define) keyword 
+    2. name the function something that makes sense!
+    3. add parentheses!
+    4. add a colon to establish a code block
+    5. indent, and write all the code that goes into the function!
+
+    >   def laugh():
+    >       print("ha" * 20)
+
+    # NOTE: this is only defining the function, if you want it to run you have to execute it!
+    # NOTE: order of defining and calling a function matters -- must be defined earlier in the code before you execute it
+
+# CALLING A FUNCTION
+    1. just write the name of the function and the parentheses!
+
+    > laugh()
+
+# FUNCTIONS WITH AN INPUT 
+    input in a function = an 'ARGUMENT'
+
+    function_name(argument)
+
+    can have multiple arguments
+
+    how to:
+        # 1 - make a perameter name, and put in in parentheses when defining function
+        # 2 - use it within the code function by using the perameter name
+        # 3 - when calling your function, pass in the apropriate argument
+            NOTE: at the moment, not passing in the argument, or passing in the wrong type into the argument will break the function at this point
+
+    >   def laugh(strength):
+    >       print("HA" * strength)
+
+    >   laugh(2)
+    >   // HAHA
+    >   laugh(10)
+    >   // HAHAHAHAHAHAHAHAHAHA
+
+# FUNCTIONS WITH MULTIPLE ARGUMENTS 
+    NOTE: order is very important!
+
+    separate multiple arguments by comments
+    define the function with perameter names, separated by comments
+
+    >   def divide(x,y):
+    >       print(x/y)
+
+    >   divide(12,3)
+    >   // 4.0
+    >   divide(3,12)
+    >   // 0.25
+
+# RETURN KEYWORD
+    - a function accepts INPUTs and returns OUTPUTs
+    - outputs have to be stored in variables to be captured and used
+
+    How to store results when defining functions ...
+        - values must be specifically returned
+        - each function can return ONE thing
+        - whatever comes after return keyboard will be returned
+        - default return value is None
+
+        >   def divide(x,y):
+        >       return x/y
+
+        - outputs whatever value comes after the return keyword
+        - NOTE: ENDS the execution of a function
+        - now the evaluated output can be captured and used in a variable
+
+# DEFAULT PERAMETERS
+    - to give a parameter a default value if no argument is provided, simply add the default using the format: PARAMETER=VALUE
+
+    >   def laugh(intensity=2):
+    >       print("HA" * intensity)
+
+# ORDERING DEFAULT PERAMETERS
+    - ordering is VERY IMPORTANT with perameters
+    - ie if you want a default for the first argument, but not for the second... it could get awkward!
+    - NOTE: Default perameters MUST be written after any perameters that are required, because the arguments will be filled from left to right.
+
+# KEYWORD / NAMED PERAMETERS 
+# NAMED ARGS / KEYWORD ARGS 
+
+    - when there are a lot of arguments, the fact that they all have to be in order gets annoying...
+    - instead, you can use keyword arguments to call each one out in a simpler for humans way!
+
+    >   get_total(price=9.75, qty=5, tax=0.01, discount=0.5)
+
+    note: just use the same syntax as when defining a function with default perameters, but you are using it to give arguments!
+
+    - this method is longer, but clearer
+    - you don't have to respect the order, you can mix them around! Because the keyword is attached, the order doesn't matter!
+
+    >   get_total(8.99, tax=0.025) 
+
+    - you can still rely on the other default perameters, as long as you specify the one that you want to change with keyword args
+
+    NOTE: NO positional arguments can follow keyword arguments -- keyword arguments ALWAYS have to be after ones that you aren't using the keyword for
