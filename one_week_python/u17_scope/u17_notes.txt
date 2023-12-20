@@ -1,0 +1,42 @@
+# SCOPE
+    - every variable we work with in Python has a scope or boundary where it can be used.
+    - there are specific rules to how variables are scope based on where they are initially defined
+    - basically: where can you use a given variable?
+    NOTE: loops and conditionals have different scope rules than variables defined in functions
+
+# TYPES OF SCOPING IN PYTHON (in order, which matters)
+    # L - LOCAL / LEXICAL (highest precidence)
+    # E - ENCLOSING
+    # G - GLOBAL
+    # B - BUILT-IN (lowest precidence)
+
+    - order matters!
+    - the locally scoped variable will be given precidence over ie a global variable of the same name even if it's declared earlier in the code
+
+# LOCAL SCOPE
+    - variables defined in a function are SCOPED TO THAT FUNCTION
+    - they are NOT AVAILABLE OUTSIDE of that function!
+
+# ENCLOSING SCOPE
+    - nested "inner" functions have access to variables declared in outer parent functions
+
+# GLOBAL SCOPE
+    - variables declared outside of functions are in the GLOBAL SCOPE 
+    - ALL FUNCTIONS have access to them
+
+# BUILT-IN SCOPE
+    - all the built-in objects in python are in the built-in scope. We have access to them anywhere!
+
+# THE GLOBAL KEYWORD
+    - "global"
+    - you can use the global keyword to register a variable name within a function as a global variable, as if it was created outside of the function
+    - not super common. not to be used all the time, only in specific cases
+    - helps differentiate when you are using a local variable and the global variable, because you can theoretically create them with the same name
+
+    >   def outer():
+    >       global animal
+    >       animal = "Spider Crab"
+    >   outer()
+
+    >   print(animal)
+    >   // Spider Crab
