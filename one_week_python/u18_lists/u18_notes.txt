@@ -1,0 +1,156 @@
+# LISTS : THE BASICS
+    - a data structure (a container that can store multiple values at once)
+    - lists have an order
+
+Lists...
+    - are ORDERED collections of data
+    - can hold any of the data types we've seen (ie int, string, boolean, etc...)
+
+CREATING LISTS
+    - variable -- lists are stored in a variable just like any other value
+    - items are contained within square brackets
+    - items are separated by commas
+    - can have as many elements as you want
+    - note: the order you put them in is the order they are in forever
+    - can collect any data types, doesn't have to only have one type per list
+
+        >   tasks = ["Trash", "Dishes", "Laundry", "Dinner"]
+        
+
+    - another way to make a list....
+        - the list function will create an empty list
+
+            >   list()
+            >   //  []
+        
+        - list function will iterate over every character given, making each it's own element
+
+            >    list("hello")
+            >    //   ["h", "e", "l", "l", "o"]
+
+            >   list(range(3,10))
+            >   //    [3, 4, 5, 6, 7, 8, 9]
+
+
+# ACCESSING DATA IN LISTS
+    - we can retrieve individual elements from a list by passing an indes number inside of square brackets. 
+    - like strings, indeces start at 0
+
+       list[index]
+
+    - can use positive index (working from the front) or negative index (working backwards from the end)
+
+        >   waitlist[2]  (the third element)
+        >   waitlist[-1]  (the last element)
+
+# UPDATING VALUES IN A LISTS
+    - update a specific element using its index
+
+    >   nums = [7,3,9]
+    >   nums[1] = 8
+    >   nums
+    >   // [7, 8, 9]
+
+    - access the index and then update it from there with an =
+
+# ADD NEW ELEMENTS TO A LIST
+    -> APPEND
+        adds a single value to the END of a list
+
+        >   nums.append(5)
+
+    -> EXTEND
+        - like append in that it always adds to the END of the list, but it accepts and iterable and will iterate over it until each item is imported into that list
+        - accepts an iterable and appends each item from that iterable to the end of the list
+
+        >   nums.extend("abc")
+        >   // [1,2,3,'a','b','c']
+
+    -> INSERT
+        - requires an argument to specify where to insert
+
+        (index before which to insert the element)
+        (element to be inserted into the list)
+
+        insert(index,element)
+
+            >    nums.insert(1,'hi')
+            >    nums  // [7, 'hi', 3, 9]
+
+            insert 'hi' before the element currently located at index 1
+
+# LIST SLICES 
+    SYNTAX:     list[start:stop:step]
+
+    NOTE: doesn't change the original list, just selects a portion from that list
+
+    list[5:]  ->  goes from index 5 to the end 
+    list[0:5]  ->  goes from the 0 index to index five
+    list[:5]  ->  same result, from beginning to index 5
+    list[::2]  -> every other element from the whole list, step of 2
+
+    Can use list slices to update lists
+        - take a portion of an existing list and replace it with a new list
+        - will take the entire list, just using the spot you've sliced, even if you're replacing with more or less than was there before
+
+        >   nums = [4,5,6,7]
+        >   nums[1:3] = ['a','b', 'c']
+        >   nums    // [4, 'a', 'b', 'c', 7]
+
+
+DELETION METHODS
+
+    #  clear()
+        completely empties out the list, but keeps the container, just as an empty container. The container remains the same.
+
+        >   list.clear()
+
+
+    #  pop()
+        the most common way to remove things from lists
+        removes AND returns the last element from a list
+        if you give an index as an argument, pop(idx), it will remove the item at that index in the list AND return it
+
+        >   list.pop()
+        >   list.pop(0)  ->  will return the first item of the list
+
+
+    #  del
+        the del statement (NOT a method) can be used to delete an item from a specific index in a list
+ 
+        >   del list[idx]
+
+        useful when deleting using a slice,so you don't have to pop multiple times in a row
+
+        >   del list[2:]  -> deletes from index 2 until the end of the list
+
+
+    #  remove()
+        the remove(x) method will remove the FIRST element and only the first in the list that has a value of x
+
+        >   list.remove()
+
+
+ITERATING OVER LISTS
+    work with each item in a list one at a time in order
+
+    >   for item in list:
+    >       print(item)
+
+    ^ will print every item in the list, in order, one after another
+
+    can write a while loop instead, but for loop is the most common
+
+
+LISTS AND LOOPS PATTERNS
+
+    common to have a holding variable that gets updated as you iterate through the list, to work with that value later
+
+    >   total = 0
+    >   for num in nums:
+    >       total += num
+    
+    >   avg = total/len(nums)
+
+
+    
