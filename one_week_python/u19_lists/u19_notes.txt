@@ -1,0 +1,181 @@
+MORE ON LISTS
+
+# NESTED LISTS
+    lists can contain any data types, even other lists
+    common practice 
+    also called a "two dimentional list" when it's a list of lists
+    chain on brackets to get to an list index within a list index
+
+    >   nums = [1,2,3,4, [5,6]]
+    >   nums[4][1]
+    >   // 6
+
+    iterate over nested lists by nesting for loops
+
+    >   for couple in couples:
+    >       for person in couple:
+    >           print(f"Sending invite to {person}")
+
+    game boards are ofted represented in nested lists
+
+    [
+        ['X', 'O', 'X'],
+        ['X', 'X', 'O'],
+        ['X', 'O', 'O']
+    ]
+
+LIST OPERATORS
+
+    # ADDITION +
+        concatonates the lists together, combining them into one NEW list
+
+        > [1,2,3] + [4,5,6]
+        > // [1,2,3,4,5,6]
+
+    # MULTIPLICATION *
+        Multiplying an integer with a list...
+         repeats the contents of the list X number of times into a NEW list
+
+        > [1,2,3] * 2
+        > // [1,2,3,1,2,3]
+
+    # IN 
+        boolean operator IN - very commonly used
+        tells you if something exists within a list
+        also can use "not in"
+
+        > 4 in evens
+        > // True
+
+MORE LIST METHODS
+
+    # COUNT
+        the count methods returns the number of times a value occurs in a list. If the value is not in the list, it returns 0
+
+        >   ['b', 'o', 'b'].count("b")
+        >   // 2
+
+    # REVERSE
+        the reverse() methods reverse a list IN PLACE -- significant, it doesnt make a new list, but changes the original list itself
+
+        >   nums.reverse()
+        >   // [5, 4, 3, 2, 1]
+
+    # SORT
+        sorted built in function is more advanced for general use, but list does come with sort
+        the sort method default will sort list in ascending order IN PLACE
+        strings can be sorted, but it relies on character code values so it is not intuitive to language
+
+        >   [2,8,1,9,3].sort()
+        >   // [1, 2, 3, 8, 9]
+
+        can also be set to reverse sort
+
+        >   nums.sort(reverse = True)
+        >   // [9, 8, 3, 2, 1]
+
+
+LISTS ARE MUTABLE
+    # id() BUILT IN FUNCTION
+        returns the identity of some object
+        pass in a value, it will return the unique identifier in memory, like it's address
+        the same thing input in the argument for id will return the same id number every time, because it is consistent in memory
+
+        >   id([])
+        > // long identifier
+
+        >   id([])
+        > // NEW log identifier
+
+        NOTE: when a list is made, it represents a unique, seperate container in memory, even if they are identical
+            -> this is very different from something like a number or boolean
+
+        EXAMPLE : 
+
+        > list1 = [12,9,3,7]
+        > list2 = list1
+
+        in this situation, the list isn't duplicated for list2, but it just points two variables to the same location in memory IE the list basically has two names.
+            - this is different from variables being set to the same, where each has their own id
+                IE... 
+                    > age = num 
+                    > age  // 5
+                    > num // 5
+                    
+                    > age += 1
+                    > age // 6
+                    > num // 5
+
+            - if this were done with a list, they point to the SAME thing in memory, so a change to one will change the other, because they are just two names for the same container
+
+COMPARING LISTS
+    how to tell if two lists are EXACTLY the same & how to tell if lists have the same stuff INSIDE of them
+
+    # ==
+        use == to compare the contents inside of two lists. Do they hold the same values? (order of items matters)
+
+        > [1,2,3] == [1,2,3]
+        > // True
+
+    # is
+        use is to compare the identity of two lists. Are they the same container in memory?
+
+        > [1,2,3] is [1,2,3]
+        > // False
+
+
+SPLIT()
+    split() is a string method that will split a string on a given character. it returns a list that holds the split strings. The argument given is called a delimiter
+
+    > birthday = "03/27/2020"
+    > birthday.split("/")
+    > // ['03', '27', '2020']
+
+
+JOIN()
+    join() is a string method that joins together the elements of an iterable into a single string. Whatever string you call it on will be used as a separator. Often used to turn a list of strings into a single string
+
+    > fruits = ['Apple', 'Kiwi', 'Pear']
+    > "!!!".join(fruits)
+    > // 'Apple!!!Kiwi!!!Pear'
+
+
+LIST UNPACKING
+    when you have a data structure, you can unpadck individuals out into standalone variables, naming them and assigning them in one line, unpacking them all at once in the order of the list.
+    we can 'unpack' values from a list into specific variables
+        - in this example, the first value in the list is sotred in a variable called first
+        - the second value is stored in a variable called last
+        - the third value is stored in a variable called age
+
+    > user = ['Joe', 'Bucky', 42]
+    > first, last, age = user
+
+    > first // "Joe"
+    > last // "Bucky"
+    > age // 42
+
+    NOTE: won't work unless all values get unpacked together, unless you use an *
+        use an asterisk (*) to gather any remaining unnasigned values into a variable
+
+    > x, *y, z = list
+
+    y will contain a list of all of the items between what was unpacked for x and z, whatever was leftover
+
+
+COPYING LISTS
+    copy()
+        the copy() method returns a SHALLOW COPY of a list. Nested objects are not copied, but the reference id to the other list gets copied, but it is that original container.
+        makes it so you dont have two variables pointing to the same location in memory, but it duplicates the list instead
+
+        >   list2 = list1.copy()
+
+    copying with [:]
+        we can also copy lists by creating slices of an entire list. Not the most readable, but it works!
+
+        >   list2 = list1[:]
+
+    deep copy
+        the deepcopy() method will make a copy of a list AND any nested objects contained inside that list
+
+        >   import copy
+        >   list2 = copy.deepcopy(list1)
