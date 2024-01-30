@@ -1,0 +1,159 @@
+SETS AND TUPLES
+
+# TUPLES
+    - like an underpowered list
+        - like lists, tuples are ordered, indexed collections
+    - IMMUTABLE, ordered collections
+        - unlike lists, tuples are immutable, they cannot be changed once created
+    - have much fewer methods, because they are immutable
+    - any values can go into a tuple, even lists and other mutable values
+
+    parenthesis and commas make up a tuple
+
+        >   dishes = ("burrito", "taco", "fajita", "quesadilla")
+
+    create an empty tuple
+
+        >   empty_tuple = ()
+        >   empty_tuple = tuple()
+
+    one item tuple
+        NOTE: kind of tricky -> can't make a tuple without a comma, because parenthesis are used in other parts of python. Must have a trailing comma
+    
+        >   single_tuple = ("First")  ❌
+        >   single_tuple = "First",   ✅
+        >   single_tuple = ("First",) ✅
+
+    # WHAT TO DO WITH TUPLES
+
+        use their indexes to access data
+            >   dishes[2]   // 'fajita'
+        
+        slices - for accessing, not for changing
+            >   tuple_name[0:1]
+
+        index method, a tuple method
+            >   dishes.index('taco')    // 1
+
+        count method, the other tuple method
+            >   dishes.count('fajita')  // 1
+
+        in operator
+            >   'beans' in dishes   // False
+
+        can iterate over with for loop
+            >   for d in dishes:
+            >       print(d)
+
+        can change mutable items within tuples (even though the tuple itself is immutable), only changes the item within the tuple
+            >   stuff = (1,2,[])
+            >   stuff[2].append('lol')
+            >   stuff = (1,2,['lol'])
+
+    # WHY USE TUPLES?
+        - more efficient than lists (space and time)
+        - use them for data that shouldn't change
+        - some methods return tuples, like dict.items()
+        - they can be used as keys in a dictionary
+
+
+# SETS
+    - less commonly used than lists and dictionaries, and are also more lightweight
+    - unordered collections with NO DUPLICATE ELEMENTS, every value is unique
+    - only immutable elements can be in sets 
+
+    We can...
+        - add and delete elements
+        - iterate over elements
+        - check to see if element is in a set
+        - use set operators: union, intersection, etc.
+        - usually the set has things of the same data type, but you can mix it if it makes sense
+
+    Creating sets...
+        - curly brackets, like for a dictionary, but just a list separated by commas
+
+        >   evens = {2, 4, 6, 8}
+    
+    Creating an Empty Set...
+        the only way to make an empty set is to use the set() function
+
+        >   invalid_empty_set = {} ❌ <- this would be a dictionary
+        >   empty_set = set()  ✅
+
+    SET METHODS
+        add()
+            adds a single value to a set. No duplicates in sets, so if it already exists, it won't add it!
+
+                >   evens.add(12)
+
+        remove()
+            removes a single value from the set, doesn't return, only removes
+
+                >   evens.remove(7)
+        
+        discard()
+            similar to remove(), but won't throw error for missing value
+
+                >   evens.discard(-4)
+
+        clear()
+            empties out a set
+
+                >   evens.clear()
+
+        is
+            just like lists, sets are separate containers in memory
+
+            >   {1,2,3} is {1,2,3}
+            >   // False
+
+        == 
+            compares the contents of the sets
+
+                >   {1,2,3} == {1,2,3}
+                >   // True
+
+        in
+
+            >   2 in evens  // True
+
+        iterate over a set
+
+            > for num in evens:
+            >   print(num)
+
+    # SET OPERATORS
+        - set operators work with two sets, a "left set" and a "right set"
+        - do math between two different sets to find different results
+
+        - here are some of the set operators....
+
+        INTERSECTION -> &
+            returns new set with members common to the left and right
+
+                >   set_odd & set_even
+                >   {}
+
+                >   set_odd & set_all
+                >   {1,3,5,7,9}
+
+        UNION -> |
+            returns new set with memebers from left and right, all members combined
+                >   set_odd | set_even
+                >   {1,2,3,4,5,6,7,8,9,10}
+
+                >   set_odd | set_prime
+                >   {1,2,3,5,7,9,11}
+
+        DIFFERENCE -> -
+            returns new set with memebrs from left NOT in right
+            NOTE: ORDER MATTERS -- shows values unique to the LEFT side
+                >   set_odd - set_even
+                >   {1,3,5,7,9}
+
+                >   set_odd - set_prime
+                >   {1,9}
+
+    Why use sets...
+        - sets make it easy/fast to check if a value exists in a collection
+        - sets are an easy way to remove duplicates from a collection
