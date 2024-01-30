@@ -1,0 +1,208 @@
+# DICTIONARIES
+    -> a data structure that consists of key-value pairs, where ordering is not significan
+
+    another data structure, good for storing data collected with individual items, with details that go with them, you easily group and store these together
+
+    unlike a list, order doesn't matter - lists have INDEX-VALUE PAIRS
+
+    store data in KEY : VALUE PAIRS, so you can group items together, like a word and it's definition
+
+    KEY - what each piece of information is stored under ('year')
+    VALUE - the corresponding definition (2002)
+
+    'year' : 2002
+
+
+CREATING A DICTIONARY
+
+    dictionaries, known as associative arrays in other languages, are indexed by keys rather than a numerical indexed
+        - a dictionary holds key-value pairs
+        - keys can be any immutable type: numbers, strings, booleans, etc.
+        - values can be whatever you want!
+
+    # USE CURLY BRACES
+        >   empty_dict = {}
+        >   empty_dict = dict()   <- the dictionary function, makes an empty dictionary
+
+    # USE COMMAS AND COLONS
+        separate key value pairs with commas, separate keys and values with colons
+
+        >   dict = {'key': 3.5, 'key2': 'dog'}
+
+    # TYPES FOR KEYS
+        values can be anything, but keys get hashed, so they have more rules
+
+        can only use any immutable data type (numbers, strings, booleans, and some tuples)
+
+        strings is the most common!
+
+ACCESSING DATA IN DICTIONARIES
+
+    # retrieve values using dict[key]
+
+        > order["quantity"]
+        > // 12
+    
+ADDING AND UPDATING DICTIONARIES
+
+    Updating value with existing KEY
+        >   movie["title"] = "Updated Movie Title"
+
+        >   movie['imdb_score'] += 0.5
+        >   // was 8.3, now is 8.8
+
+    Same syntax to add NEW key value pairs
+
+        >   movie['fan_score'] = 9.95
+
+OPERATORS
+
+    # in operator - works with dictionaries too!
+        it will only look at the KEYS, not the values
+        Checks whether a key exists within a dictionary
+
+        >   order = {'cost':3.5, 'quantity':12}
+        >   12 in order     // False
+        >   'cost' in order     // True
+
+    # dict.get() method
+        the get() method will look for a given key in a dictionary. If they key exists, it will return the corresponding value. Otherwise it returns None.
+
+        >   order.get("cost")
+        >   // 3.5
+        >   order.get("unknown_key")
+        >   //      <- doesn't throw an error, just returns None!
+
+    
+REMOVING ELEMENTS FROM DICTIONARY
+
+    # pop() method
+        the pop method accepts a key and will delete the corresponding key-value pair in the dictionary. It returns the deleted value.
+
+        >   // "b" : 1
+        >   pop_value = dict1.pop('b')
+        >   pop_value = 1
+
+    # popitem() 
+        deletes the most recently added key-value pair. It returns the item as a tuple (both the key and the value)
+
+        >   pop_item = dict1.popitem()
+        >   pop_item // ('c', 3)
+
+    ＃ clear()
+        clear deletes all items from a dictionary. It returns None. It keeps the same container, just empties it.
+
+        >   dict1.clear()
+        >   dict1  //  {}
+
+    # del statement
+        the del statement (not a method) can be used to remove items from a dictionary. Specifically remove a key value pair by providing a key, returns nothing
+
+        >   del dict1['a']
+
+DICTIONARIES ARE MUTABLE
+    they are a container that stores different values, the container itself will remain the same, but the insides can change
+
+    >   dict2 = dict1
+    will reference the same location in memory, changing d1 or d2 will reflect changes in both, because they point to the same thing
+
+ITERATING OVER DICTIONARIES
+    iterate over each element in a dictionary, but each item has two values (key and value), so you have to specify
+
+    NOTE: the default behavior when iterating over a dictionary is .keys
+
+    NEW DATA TYPES
+        dict_keys
+        dict_values
+        dict_items
+
+    # .keys
+
+        >   dict1.keys()
+        >   dict_keys(['...'])
+            returns dict_keys object (not a list)
+
+        >   for student in test_scores.keys():
+        >       print(student)
+
+    # .values
+
+        >   dict1.values()
+        >   dict_values(['...'])
+
+        >   for score in test_scores.values():
+        >       print(score)
+
+    # .items
+        returns dict_items where each elment is a key-value pair in the form of a tuple, so you can work with both they key and value 
+
+        can unpack the tuple within the for loop
+
+        >   for key, value in test_scores.items():
+        >       print(key, value)
+
+DICTIONARY MERGING
+
+    # update method
+        the update method will update a dictionary using the key-value pairs from a second dictionary, passed as the argument
+
+        >   dict1.update({"key":"value"})
+        >   dict1.update(dict2)
+
+        if the keys match, they will be updated to the new value
+
+    # the ** trick
+        we can use two stars ** to combine multiple dictionaries into a new resulting dictionary, like dictionary unpacking
+
+        >   dict3 = {**dict1, **dict2}
+
+        NOTE: if there is a conflict (two matching keys, with different values), the dictionary added last in order will be the final result
+
+    # dict union
+        python 3.9 added the dict union operator (|) it will return a new dict containing the items from the left and the right dicts. In teh case of duplicated keys, the right side always wins.
+
+        >   dict3 = dict1 | dict2
+
+MORE COMPLEX DICTIONARIES
+
+    # nesting dictionaries is common
+
+        produce = {
+            "argugala" : {
+                'price" : 1.10,
+                'qty' : 61,
+                'organic' : True,
+                'producer' : 'Blue Kitty Farms',
+            }
+            "coconut" : {
+                'price" : 7.15,
+                'qty' : 12,
+                'organic' : False,
+                'producer' : 'Tropical Dream Farm',
+            }
+        }
+
+    # combining dictionaries and lists
+
+        lists within a dictionary
+
+        test_scores = {
+            "Marsha" : [78, 80, 89],
+            "Baker" : [69, 65, 52]
+        }
+
+        ordered list that contains dictionaries that represents individual people
+
+        waitlist = [
+            {
+                "email" : "girl@gmail.com",
+                "location" : "USA",
+                "first_name" : "Tiffany"
+            },
+            {
+                "email" : "boy@gmail.com",
+                "location" : "Canada",
+                "first_name" : "James"
+            }
+        ]
+
