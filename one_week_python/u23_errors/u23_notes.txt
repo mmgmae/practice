@@ -1,0 +1,67 @@
+WORKING WITH ERRORS
+
+# COMMON ERROR TYPES 
+    - syntax error
+        - invalid python syntax IE characters that aren't allowed in Python or indentation errors
+    - index error
+        - try and access something in a string or something indexed and try to access an index that doesn't exist
+    - value error
+        - operation or function recieves an argument that has the right type but an innapropriate value
+    - name error
+        - trying to access a variable that doesn't exist, or misspelling
+    - type error 
+        - when trying to do an operation that isn't allowed between two data types
+    - key error
+        - in a dictionary - trying to look up by a key that doesn't exist
+
+# RAISING EXCEPTIONS -> raise keyword
+    - we can raise our own exceptions (force them to happen) whenever we want, using the raise keyword
+    - done to help other devs understand our code easier
+    - can provide a specific message when raising an exception
+
+        >   raise ValueError("invalid character")
+        >   raise Exception
+
+    # when to raise an exception?
+        - we raise expections any time something exceptional occurs when we need to stop execution to help us handle errors
+            - IE someone tries to type in an invalid input so you can raise an error to them to explain what's going on, instead of None or False that might break your database or confuse your user
+
+# TRY / EXCEPT
+    - try and except keywords are used to andle exceptions. If an exception is raised in the try block, the except block will run
+
+        >   try:
+        >       <code that could generate error>
+        >   except:
+        >       <code that runs if error is raised>
+
+    - usually it's better to except a specific exception and handle it, rather than handling any possible exception that could occurs
+    - can also chain on multiple excepts after the try
+
+        >   try:
+        >       <block>
+        >   except ValueError:
+        >       <block>
+        >   except ZeroDivisionError:
+        >       <block>
+    
+# LBYL and EAFP - two approaches to coding styles and anticipationg vs letting errors occur
+
+    # LBYL - Look Before You Leap
+        - coding style where you explicitly test for pre-conditions before making calls or "leaping"
+        - characterised by lots of if statements
+
+            >   year = input("Enter a year: ")
+            >   if year.isnumeric():
+            >       year = int(year)
+            >   else:
+            >       year = 2025
+
+    # EAFP - Easier to Ask for Forgiveness than Permission
+        - assume things exist or will work, and catch exceptions if you're wrong 
+        - coding style characterized by lots of try/except blocks
+        - technically the more pythonic way to code
+
+            >   try:
+            >       year = int(input("Enter a year: "))
+            >   except ValueError:
+            >       year = 2025
