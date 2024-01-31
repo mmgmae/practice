@@ -1,0 +1,51 @@
+MORE ABOUT FUNCTIONS
+
+# *ARGS
+    we can use the wildcard * notation to write functions that accept any number of arguments in the form of a tuple
+
+    the * character gathers all remaining arguments into a tuple
+    pass in as many arguments as you want! it will collect them all
+    can be named whatever you want, but *args is common!
+    can also set up required arguments, and catch all others in the *args
+
+        >   def average(*args):
+        >       total = 0
+        >       for arg in args:
+        >           total += arg
+        >       return total/len(args)
+
+# **KWARGS
+    "keyword arguments"
+    we can use the ** notation to write functions that accept any number of keyword arguments, and create a dictionary to put them in as key:value pairs
+    kwargs is a common name, but can use anything ie **ages, **people etc
+
+        >   def demo(**kwargs):
+        >       print(kwargs)
+
+        >   demo(color="red", age=12)
+        >   // {'color': 'red', 'age': 12}
+
+# PARAMETER LIST ORDERING
+    when defining functions, the order of perameters matters!
+
+        (parameters, *args, default perameters, **kwargs)
+
+# MUTABLE DEFAULT ARGS -- beware!
+    a list as a default value will be shared between every function call that uses it--so it will keep getting updated and added to! It points to the same list in memory!
+
+    to make a new empty list every time...
+        set the default to None, and then within the body of the function create the new list when necessary
+        >   def example(val, lst=None):
+        >       if lst is None:
+        >           lst = []
+        >       lst.append(val)
+
+# UNPACKING ARGS
+    turning sequences into separate args
+    IE: if a list is given as a single argument, that is seen as a single item, and will confuse the function unless it gets unpacked
+
+    to unpack, put a * in front of the list name when put into args
+    with * notation, each element will be unpacked as an individual argument
+    
+        >   nums = [1,2,3,4,5]
+        >   function_name(*nums)
