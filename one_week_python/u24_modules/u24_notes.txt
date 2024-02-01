@@ -1,0 +1,69 @@
+MODULES
+    - a module is a python file that contains code that can be re-used in other files
+    - modules allow us to break up complex programs into smaller, more manageable pieces across multiple files
+
+    # 3 types of modules...
+
+        # BUILT-IN 
+            - The Python Standard Library -- has all of the stuff that comes with python, including modules
+            - Python comes with tons of built-in modules that we can use if we IMPORT them
+            - each module consists of methods and functionality bundled together
+
+            IMPORT...
+                to use a module, we must import it first using the IMPORT KEYWORD
+
+                    >   import random
+                    >   random.randint(1,6)  // 3
+
+            NOTE: it is conventional to put all of your imports at the top of your code file
+
+            IMPORT AS ...
+                use the as keyword to import a module and give it a custom name in your script
+
+                    >   import random as rand
+                    >   rand.randint(1,6)
+
+            FROM ... IMPORT ...
+                use the from <module> import <method, constant, etc> syntax to import specific pieces of a module
+                - can chain on extras with commas, if you want to include more than one
+
+                    >   from random import randint
+                    >   randint(1,6)
+
+            IMPORT * ....
+                we can import all pieces of a module individually using import * 
+                - however, this usually is not the best approach to importing!
+                - bad, because you're polluting your name space with things you probably don't even know about
+
+                    >   from random import *
+                    >   randint(1,6) 
+
+        # CUSTOM 
+            must be located into the same folder and simply use import
+
+                > import utils
+
+            or...
+
+                > from utils import brand_colors
+                > print(brand_colors)
+
+        # 3RD PARTY
+
+            # PIP
+                - PIP - Pip Installs Packages
+                - pip is the python package installer that we  can use to install hundreds of thousands of packages for use in our projects
+                - pip comes bundled with python!
+
+            Ensure you can run pip from the command line...
+
+                >   python3 -m pip --version
+
+            Where to find external packages? ...
+                - PYPI.ORG  (python package index)
+                - find, install, and publish python packages
+
+                PIP INSTALL...
+                    to install a package, use python3 -m pip install followed by the exact name of the package
+
+                    >   python3 -m pip install <package>
