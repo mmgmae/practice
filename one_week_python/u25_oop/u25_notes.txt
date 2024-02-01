@@ -1,0 +1,128 @@
+OBJECT ORIENTED PROGRAMMING (OOP)
+    - a way of organizing code and designing and breaking down programs
+    - an approach to programming that involves modeling "things" into Python objects
+        - these objects can contain both data AND functionality all wrapped together into a reusable component
+    - in a chess game, you might want individual objects to represent...
+        - board
+        - piece
+        - player
+        - match
+        - etc
+
+# CLASS
+    - classes are blueprints or recipes that we can later use to create objects from
+    - a class describes what properties and functionality individual objects will contain
+
+# INSTANCE
+    - we call the individual objects that are created from a class blueprint INSTANCES
+    - an INSTANCE is created from a CLASS BLUEPRINT
+    - instances can all be different, but follow the rules of the blueprint
+
+# CLASS SYNTAX
+    - class keyword
+    - class name (Capitalized), usually represents a single thing
+    - colon
+        - special init method -- automatically called whenever a new Puppy is created (__init__) (two underscores on each side)
+        - self keyword must be the first parameter to init
+            - self keyword -- the self keyword refers to the "current" instance of Puppy. Self is conventional, can be anything
+
+    >   class Puppy:
+    >       def __init__(self, name):
+    >           self.name = name
+    >           self.tricks = []
+
+# Instantiating...
+    to create a Puppy instance, call Puppy() and provide a name
+    NOTE: don't pass through a self.
+
+    >   elton = Puppy("Elton")
+    
+    >   elton.name  // 'Elton'
+
+# INSTANCE METHODS
+    - define a function indented within the class
+    - the first perameter is always self, refers to the particular instance of puppy
+    - add_trick() method appends a new trick to a Puppy instance's tricks list
+
+    >   class Puppy:
+    >       def __init__(self, name):
+    >           self.name = name
+    >           self.tricks = []
+    >       def add_trick(self, new_trick):
+    >           self.tricks.append(new_trick)
+
+    >   elton.add_trick("stay")
+    >   elton.tricks    // ["stay"]
+
+# CLASS ATTRIBUTES
+    - class attributes are defined on the class itself, so all isntances will have the same value
+    - NOTE: goes before the __init__ method, because it is shared between all instances, and doesn't need to be initialized for each instance
+    - changes made will be shared everywhere, on every instance, even if they were already initialized
+
+    >   class Puppy:
+    >       species = 'canine'
+    >       def __init__(self, name):
+    >           self.name = name
+    >           self.tricks = []
+
+# CLASS METHODS
+    - define methods that are available on the class directly
+    - class methods are not concerned with a specific insstance of the class
+    - usually used to help you create new instances (ie this one is to register an anonymous puppy)
+    - use @classmethod "DECORATOR" directly the line before the method, so python knows it is a special class method and not a regular method
+    - cls is conventionally used instead of the self perameter, because it holds the whole class, instead of a singular instance like self
+
+    >   class Puppy:
+    >       species = 'canine'
+    
+    >       @classmethod
+    >       def register_anon(cls):
+    >           return cls('unknown')
+
+    >       def __init__(self, name):
+    >           self.name = name
+    >           self.tricks = []
+
+# INHERITENCE
+    a class can share functionality with another class, often classes are interconnected. Helps you not have to rewrite a bunch of code
+
+    - class Lion(Cat) allows lion class to inherit from the base cat class
+    - eli the lion can meow because lion inherits functionality from cat
+
+    >   class Cat:
+    >       def __init__(self, name):
+    >           self.name  = name
+    >       def meow(self):
+    >           print(f"{self.name} meows")
+
+    >   class Lion(Cat):
+    >       def roar(self):
+    >           print(f"{self.name} roars")
+
+    >   eli = Lion("Eli")
+    >   eli.meow()
+    >   "Eli meows"
+
+# THE SUPER() FUNCTION 
+    - super() has to do with inheritance
+    - use super() to refer to the base or parent class
+    - in this case, we use super() to access the __init__ method on from the Cat class
+
+    >   class Cat:
+    >       def __init__(self, name):
+    >           self.name  = name
+    >       def meow(self):
+    >           print(f"{self.name} meows")
+
+    >   class Lion(Cat):
+
+    >       def __init__(self, name, pride_name):
+    >           super().__init__(name)
+    >           self.pride_name = pride_name
+
+    >       def roar(self):
+    >           print(f"{self.name} roars")
+
+    NOTE: Cat is the "SUPER" class of lion -- the parent class
+    
+    - here lion is using the parent constructor for inits and also adding onto it stuff that just applies to lions
