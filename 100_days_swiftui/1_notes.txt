@@ -1,0 +1,146 @@
+DAY ONE
+
+# why swift?
+    - swift is new, from 2014
+    - swiftUI from 2019, designed to be used with swift 
+
+# how to create variables and constants
+
+    VARIABLE (VAR)
+        - value can change over time by reassignment
+        - use var keyword
+        - camelCase convention
+
+        >   var greeting = "Hello, playground"
+        >   greeting = "Hello, friend!"
+
+        - var keyword -- create a new variables
+        - greeting -- name of variable
+        - = -- equals sign to assign a value to greeting
+        - "Hello, playground" -- the string assigned to the variable greeting
+
+        NOTE: semicolons ; are allowed in swift, but VERY RARE - only required if two lines of code need to be on the same line
+
+    CONSTANT (LET)
+        - value will never be changed over time, will give error if you try to change it
+        - use let keyword
+        - NOTE: try to use constants > variables as much as possible
+            - optimizes code because it will never have to look for changes
+            - also allows swift to stop you from changing values by accident
+
+        >   let characterName = "Jim"
+
+# how to create strings
+    - must start and end in double quotes
+    - backslashes to use inner "" quotation marks
+    - NOTE: strings are CASE-SENSITIVE
+
+        >   let quote = "Then he tapped a sign saying \"Believe\" and walked away."
+
+    - NOTE: MULTILINE STRINGS AREN'T ALLOWED, unless you use triple quote syntax 
+        - the triple quotes must be on their own lines to work
+
+        >   let movie = """
+            A day in
+            the life of an
+            Apple engineer
+            """ 
+
+    # count
+        count ammount of characters - including spaces, and emojis count for one
+
+        >   let actor = "Denzel Washington"
+        >   print(actor.count)
+        >   // 17
+
+    # uppercased
+        the () are needed in upperaced, but not required in count 
+            - NOTE: if you're asking swift to do some work for you, you need the (), but if swift just needs to read the data, you usually don't need the ()
+
+        >   print(actor.uppercased())
+        >   // DENZEL WASHINGTON
+
+    # hasPrefix, hasSuffix
+        lets you know if a string starts with some letters of our choosing
+
+        >   print(actor.hasPrefix("D"))
+        >   // true
+
+# how to store whole numbers
+    - whole numbers are INTEGERS - INT
+    - use let or var
+
+        >   let score = 10
+
+    - big numbers can use underscores like you would use commas
+        - note: you can use as many as you wanted, swift will ignore them. it is just for ease of human eyeballs
+
+        >   let reallyBig = 100_000_000
+
+    - operators in swift are standard 
+
+        >   let lowerScore = score - 2
+        >   let higherScore = score + 10
+        >   let doubledScore = score * 2
+        >   let squaredScore = score * score
+        >   let halvedScore = score / 2
+
+    # shorthand operators +=, *=, -=, /= (AKA COMPOUND ASSIGNMENT OPERATORS)
+        - adds/subtracts a number directly to a variable
+
+        >   counter += 5
+        >   counter *= 2
+        >   counter -= 10
+        >   counter /= 2
+
+    # isMultiple(of:)
+        - find out if one integer is a multiple of another integer
+    
+        >   let number = 120
+        >   print(number.isMultiple(of: 3))
+        >   // true
+
+        can use isMultiple(of:) on constants, variables, or integers 
+
+        >   print(120.isMultiple(of: 3))
+        >   // true
+
+# how to store decimal numbers
+
+    0.1 - double
+    2.0 - still a double
+    2 - integer!
+
+    - aka "floating-point number" or DOUBLE ("double precision floating-point number" aka it allocated double the ammount of data to store these numbers)
+    - doubles are an entirely different data type than ints, because of the innacuracy
+    - ints and doubles cannot be used in math
+
+        >   1 + 2.0     ! // cannot mix ints and doubles!
+            - this is called type safety, you cannot mix data types by accident
+            - you can explicitely tell swift to treat the int as a double, or the double as an int for this to work
+
+        >   print(1 + Int(2.0))
+        >   // 3
+
+        >   print(Double(1) + 2.0)
+        >   // 3.0
+
+    - swift knows whether you are creating an int or a double based on if there is a decimal point, a decimal always makes a double
+
+    # double operators and compount assignment operators are the same as for integers
+
+        >   var rating = 5.0    
+        >   rating *= 2
+
+        - even thought the math is done with an int, swift will uderstand it as a double
+
+# TYPE SAFETY 
+    - once a variable or constant is assigned one data type, it can ONLY hold that data type in the future
+
+    >   var name = "Nicolas Cage"
+    >   name = 57  !// error
+
+# CGFLOAT
+    - old apple framework Core Graphics
+    - older way of storing doubles
+    - swift allows doubles and cgfloats interchangeably, can be ignored and iterpreted as double
