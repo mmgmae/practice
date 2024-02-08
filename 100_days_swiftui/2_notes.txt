@@ -1,0 +1,81 @@
+DAY TWO
+
+# BOOLEANS
+    - store simple TRUE or FALSE values
+    - exist in swift as false and true, no capitalizations
+
+    # how to make a boolean 
+
+        >   let goodDog = true
+        >   var gameOver = false
+
+    # boolean operator = !
+        - flips true to false and false to true 
+
+        >   var isAuthenticated = false
+        >   isAuthenticated = !isAuthenticated
+
+        >   print(isAuthenticated)
+        >   // true
+
+    # boolean functionality 
+
+        - .toggle()
+            - will also flip from true to false, like !
+            - useful for dealing with complex numbers
+
+            >   var gameOver = false
+            >   gameOver.toggle()
+
+            >   print(gameOver)
+            >   // true
+
+# HOW TO JOIN STRINGS TOGETHER
+
+    # join using +
+
+        >   let firstPart = "Hello, "
+        >   let secondPart = "world"
+
+        >   let greeting = firstPart + secondPart + "!"
+        >   // "Hello, world!"
+
+        - the operator + is "overloaded" can be used in concatonation as well as mathematical operations, depending on the context
+
+        - this technique is good for small things, but should not be overused because it is multiple operations for swift so it's wasteful
+
+
+    # string interpolation \(var)
+        - build strings from other strings and other types of data
+        - not unlike using "a string with \"backslashes\" so you can use more quotes inside of quotes"
+        
+        >   let name = "Jim"
+        >   let age = 26
+        >   let message = "Hello, my name is \(name) and I'm \(age) years old."
+        >   print(message)
+        >   // "Hello, my name is Jim and I'm 26 years old."
+
+        - math is also ok!
+
+        >   print("5 x 5 is \(5 * 5)")
+        >   // "5 x 5 is 25"
+
+        NOTE: with string interpolation integers can be added to string seamlessly, don't have to be converted into strings
+
+        # how to add numbers with the + operator String(var)
+            - possible, but still easier to read with string interpolation instead
+
+            >   let number = 11
+            >   let missionMessage = "Apollo " + String(number) + " landed on the moon."
+
+# SIMPLE DATA SUMMARY
+
+    - let for constants, preferred
+    - var for variables
+    - strings can be short or long, multiline use """, both on own line
+        - use count of uppercased on strings
+    - Int is integer, Double is for decimals
+        - doubles are bad for storing money, because they arent accurate
+    - boolen is Bool, can use ! or toggle to switch true and false
+    - string iterpolation is done with \(x)
+    
